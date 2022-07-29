@@ -525,6 +525,22 @@ export const layoutComponents = [
   },
   {
     __config__: {
+      label: '分割线',
+      tag: 'el-divider',
+      tagIcon: 'divider',
+      span: 24,
+      layout: 'rowItem',
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/divider'
+    },
+    __slot__: {
+      default: ''
+    },
+    style: { width: '100%' },
+    'content-position': 'left'
+  },
+  {
+    __config__: {
       label: '按钮',
       showLabel: true,
       changeTag: true,

@@ -111,6 +111,14 @@ const layouts = {
     </el-row>`
     str = colWrapper(scheme, str)
     return str
+  },
+  rowItem(scheme) {
+    const tagDom = tags[scheme.__config__.tag] ? tags[scheme.__config__.tag](scheme) : null
+    let str = `<el-row>
+      ${tagDom}
+    </el-row>`
+    str = colWrapper(scheme, str)
+    return str
   }
 }
 
@@ -310,7 +318,8 @@ const tags = {
       tag, disabled, vModel, clearable, placeholder, width
     } = attrBuilder(el)
     return `<user-picker ${vModel} ${clearable} ${placeholder} ${width} ${disabled} :same-department='${el.sameDepartment}'></user-picker>`
-  }
+  },
+  'el-divider': el => `<el-divider content-position='${el['content-position']}'>${el.__slot__.default}</el-divider>`
 }
 
 function attrBuilder(el) {

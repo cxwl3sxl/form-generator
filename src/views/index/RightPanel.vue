@@ -356,6 +356,22 @@
             </el-form-item>
             <el-divider />
           </template>
+          <template v-if="['el-divider'].indexOf(activeData.__config__.tag) > -1">
+            <el-divider>选项</el-divider>
+            <el-form-item label="文案位置">
+              <el-select v-model="activeData['content-position']">
+                <el-option label="左" value="left" />
+                <el-option label="中" value="center" />
+                <el-option label="右" value="right" />
+              </el-select>
+            </el-form-item>
+            <el-form-item label="文案内容">
+              <el-input
+                v-model="activeData.__slot__['default']"
+              />
+            </el-form-item>
+            <el-divider />
+          </template>
 
           <template v-if="['el-cascader', 'el-table'].includes(activeData.__config__.tag)">
             <el-divider>选项</el-divider>
