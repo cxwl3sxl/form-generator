@@ -55,12 +55,24 @@ export default class Prop {
     return `${this._remark} ${this._type} ${this._prop}`
   }
 
+  contain(source, target) {
+    if (!(target instanceof Array)) return false
+    for (let i = 0; i < target.length; i++) {
+      if (source.indexOf(target[i]) >= 0) return true
+    }
+
+    return false
+  }
+
   getElTag() {
     if (this._dictCategory) {
       this._type = 'DataDictionarySelector'
     }
-    if (this._type === 'int' && (this._remark.indexOf('归属地') >= 0 || this._remark.indexOf('区域') >= 0)) {
+    if (this._type === 'int' && this.contain(this._remark, ['归属地', '区域'])) {
       this._type = 'AreaSelect'
+    }
+    if (this._type === 'Guid' && this.contain(this._remark, ['者', '用户', '账号'])) {
+      this._type = 'UserPicker'
     }
     return csTypeCompMapManager.getMapped(this._type).getConfig(this)
   }

@@ -304,6 +304,12 @@ const tags = {
       tag, disabled, vModel, clearable, placeholder, width
     } = attrBuilder(el)
     return `<area-select ${vModel} ${clearable} ${placeholder} ${width} ${disabled}></area-select>`
+  },
+  UserPicker: el => {
+    const {
+      tag, disabled, vModel, clearable, placeholder, width
+    } = attrBuilder(el)
+    return `<user-picker ${vModel} ${clearable} ${placeholder} ${width} ${disabled} :same-department='${el.sameDepartment}'></user-picker>`
   }
 }
 

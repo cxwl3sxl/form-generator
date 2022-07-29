@@ -345,6 +345,17 @@
             </el-form-item>
             <el-divider />
           </template>
+          <template v-if="['UserPicker'].indexOf(activeData.__config__.tag) > -1">
+            <el-divider>选项</el-divider>
+            <el-form-item label="限制同部门">
+              <el-switch
+                v-model="activeData.sameDepartment"
+                active-text="是"
+                inactive-text="否"
+              />
+            </el-form-item>
+            <el-divider />
+          </template>
 
           <template v-if="['el-cascader', 'el-table'].includes(activeData.__config__.tag)">
             <el-divider>选项</el-divider>

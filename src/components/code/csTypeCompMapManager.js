@@ -8,6 +8,7 @@ import { CsTypeDouble } from './csType.double'
 import { CsTypeDataDictionarySelector } from './csType.dataDictionarySelector'
 import { CsTypeGuid } from './csType.Guid'
 import { CsTypeAreaSelect } from './csType.AreaSelect'
+import { CsTypeUserPicker } from './csType.UserPicker'
 
 class CsTypeCompMapManager {
   constructor() {
@@ -43,6 +44,10 @@ class CsTypeCompMapManager {
     {
       name: 'AreaSelect',
       type: new CsTypeAreaSelect()
+    },
+    {
+      name: 'UserPicker',
+      type: new CsTypeUserPicker()
     }]
   }
 
