@@ -242,8 +242,6 @@ function buildOptionMethod(methodName, model, methodList, scheme) {
 function buildexport(conf, type, data, rules, selectOptions, uploadVar, props, methods, created) {
   const str = `${exportDefault}{
   ${inheritAttrs[type]}
-  components: {},
-  props: [],
   data () {
     return {
       ${conf.formModel}: {
@@ -257,11 +255,9 @@ function buildexport(conf, type, data, rules, selectOptions, uploadVar, props, m
       ${props}
     }
   },
-  computed: {},
-  watch: {},
-  created () {
+  ${(created ? `created () {
     ${created}
-  },
+  },` : '')}
   mounted () {},
   methods: {
     ${methods}
