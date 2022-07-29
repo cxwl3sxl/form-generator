@@ -290,6 +290,12 @@ const tags = {
     const height = el.height ? `:height="${el.height}"` : ''
     const branding = el.branding ? `:branding="${el.branding}"` : ''
     return `<${tag} ${vModel} ${placeholder} ${height} ${branding}></${tag}>`
+  },
+  DataDictionarySelector: el => {
+    const {
+      tag, disabled, vModel, clearable, placeholder, width
+    } = attrBuilder(el)
+    return `<data-dictionary-selector ${vModel} ${clearable} ${placeholder} ${width} ${disabled} category='${el.category}'></data-dictionary-selector>`
   }
 }
 
