@@ -1,7 +1,9 @@
 import DataDictionarySelector from './DataDictionarySelector'
+import IdProp from './IdProp'
 
 const components = [
-  DataDictionarySelector
+  DataDictionarySelector,
+  IdProp
 ]
 
 const fx = {

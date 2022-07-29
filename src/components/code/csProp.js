@@ -22,6 +22,8 @@ export default class Prop {
           this._dictCategory = category
         }
       }
+
+      remark = remark.replace('来自', '').replace('数据字典', '')
     }
 
     if (remark.indexOf('，') > 0) {
@@ -72,7 +74,7 @@ export default class Prop {
         changeTag: true,
         tag: tag.tag,
         tagIcon: tag.icon,
-        defaultValue: undefined,
+        defaultValue: tag.default || null,
         required: true,
         layout: 'colFormItem',
         span: 24,

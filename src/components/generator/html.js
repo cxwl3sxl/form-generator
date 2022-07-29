@@ -92,6 +92,7 @@ const layouts = {
     }
     const required = !ruleTrigger[config.tag] && config.required ? 'required' : ''
     const tagDom = tags[config.tag] ? tags[config.tag](scheme) : null
+    if (!tagDom) return ''
     let str = `<el-form-item ${labelWidth} ${label} prop="${scheme.__vModel__}" ${required}>
         ${tagDom}
       </el-form-item>`
@@ -296,7 +297,8 @@ const tags = {
       tag, disabled, vModel, clearable, placeholder, width
     } = attrBuilder(el)
     return `<data-dictionary-selector ${vModel} ${clearable} ${placeholder} ${width} ${disabled} category='${el.category}'></data-dictionary-selector>`
-  }
+  },
+  IdProp: el => ''
 }
 
 function attrBuilder(el) {

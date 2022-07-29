@@ -6,6 +6,7 @@ import { CsTypeBool } from './csType.bool'
 import { CsTypeInt } from './csType.int'
 import { CsTypeDouble } from './csType.double'
 import { CsTypeDataDictionarySelector } from './csType.dataDictionarySelector'
+import { CsTypeGuid } from './csType.Guid'
 
 class CsTypeCompMapManager {
   constructor() {
@@ -33,6 +34,10 @@ class CsTypeCompMapManager {
     {
       name: 'DataDictionarySelector',
       type: new CsTypeDataDictionarySelector()
+    },
+    {
+      name: 'Guid',
+      type: new CsTypeGuid()
     }]
   }
 
