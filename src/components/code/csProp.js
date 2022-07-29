@@ -95,7 +95,7 @@ export default class Prop {
         span: 24,
         document: 'https://element.eleme.cn/#/zh-CN/component/input',
         // 正则校验规则
-        regList: []
+        regList: tag.regList || []
       },
       // 其余的为可直接写在组件标签上的属性
       placeholder: '请输入',
