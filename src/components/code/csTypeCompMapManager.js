@@ -5,6 +5,7 @@ import { CsTypeDateTime } from './csType.Datetime'
 import { CsTypeBool } from './csType.bool'
 import { CsTypeInt } from './csType.int'
 import { CsTypeDouble } from './csType.double'
+import { CsTypeDataDictionarySelector } from './csType.dataDictionarySelector'
 
 class CsTypeCompMapManager {
   constructor() {
@@ -28,6 +29,10 @@ class CsTypeCompMapManager {
     {
       name: 'float',
       type: new CsTypeDouble()
+    },
+    {
+      name: 'DataDictionarySelector',
+      type: new CsTypeDataDictionarySelector()
     }]
   }
 

@@ -5,8 +5,10 @@ import '@/styles/index.scss'
 import '@/icons'
 import axios from 'axios'
 import Tinymce from '@/components/tinymce/index.vue'
+import extendComps from '../../components/extendComponents'
 
 Vue.component('tinymce', Tinymce)
+Vue.use(extendComps)
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios

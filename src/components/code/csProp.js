@@ -8,10 +8,21 @@ export default class Prop {
     this._prop = ''
     this._type = ''
     this._maxLength = -1
+    this._dictCategory = null
   }
 
   setRemark(remark) {
     if (remark.startsWith('/// ')) { remark = remark.substr(4) }
+
+    if (remark.indexOf('数据字典') >= 0) {
+      const result = /(:|：| )\w+ +/.exec(remark)
+      if (result.length > 0) {
+        const category = result[0].trimStart().trimEnd().replace('：', '').replace(':', '')
+        if (category) {
+          this._dictCategory = category
+        }
+      }
+    }
 
     if (remark.indexOf('，') > 0) {
       remark = remark.split('，')[0]
@@ -19,6 +30,7 @@ export default class Prop {
     if (remark.indexOf('：') > 0) {
       remark = remark.split('：')[0]
     }
+
     this._remark = remark
   }
 
@@ -42,6 +54,9 @@ export default class Prop {
   }
 
   getElTag() {
+    if (this._dictCategory) {
+      this._type = 'DataDictionarySelector'
+    }
     return csTypeCompMapManager.getMapped(this._type).getConfig(this)
   }
 
