@@ -7,7 +7,7 @@ export class CsTypeDouble {
 
     return {
       tag: 'el-input-number',
-      icon: 'number',
+      icon: 'double',
       config: {
         min: undefined,
         max: undefined,
