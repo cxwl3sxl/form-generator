@@ -4,13 +4,7 @@
       <div class="logo-wrapper">
         <div class="logo">
           <img :src="logo" alt="logo"> Form Generator
-          <a
-            class="github"
-            href="https://github.com/JakHuang/form-generator"
-            target="_blank"
-          >
-            <img src="https://github.githubassets.com/pinned-octocat.svg" alt>
-          </a>
+          <theme />
         </div>
       </div>
       <el-scrollbar class="left-scrollbar">
@@ -188,6 +182,7 @@ import {
 import loadBeautifier from '@/utils/loadBeautifier'
 import SetCodeDialog from './SetCodeDialog.vue'
 import CSharp from '../../components/code/csharp'
+import theme from './theme.vue'
 
 let beautifier
 const emptyActiveData = { style: {}, autosize: {} }
@@ -206,7 +201,8 @@ export default {
     RightPanel,
     CodeTypeDialog,
     DraggableItem,
-    SetCodeDialog
+    SetCodeDialog,
+    theme
   },
   data() {
     return {
