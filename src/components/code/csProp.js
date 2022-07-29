@@ -59,6 +59,9 @@ export default class Prop {
     if (this._dictCategory) {
       this._type = 'DataDictionarySelector'
     }
+    if (this._type === 'int' && (this._remark.indexOf('归属地') >= 0 || this._remark.indexOf('区域') >= 0)) {
+      this._type = 'AreaSelect'
+    }
     return csTypeCompMapManager.getMapped(this._type).getConfig(this)
   }
 

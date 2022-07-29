@@ -1,9 +1,11 @@
 import DataDictionarySelector from './DataDictionarySelector'
 import IdProp from './IdProp'
+import AreaSelect from './AreaSelect'
 
 const components = [
   DataDictionarySelector,
-  IdProp
+  IdProp,
+  AreaSelect
 ]
 
 const fx = {

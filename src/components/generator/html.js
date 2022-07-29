@@ -298,7 +298,13 @@ const tags = {
     } = attrBuilder(el)
     return `<data-dictionary-selector ${vModel} ${clearable} ${placeholder} ${width} ${disabled} category='${el.category}'></data-dictionary-selector>`
   },
-  IdProp: el => ''
+  IdProp: el => '',
+  AreaSelect: el => {
+    const {
+      tag, disabled, vModel, clearable, placeholder, width
+    } = attrBuilder(el)
+    return `<area-select ${vModel} ${clearable} ${placeholder} ${width} ${disabled}></area-select>`
+  }
 }
 
 function attrBuilder(el) {
