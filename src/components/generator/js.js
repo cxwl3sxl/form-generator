@@ -115,7 +115,7 @@ function mixinMethod(type) {
       dialog: {
         onOpen: `onOpen() {
           if (this.vm) {
-            this.formData = deepCopy(this.vm);
+            copyData(this.vm, this.formData);
           }
         },`,
         onClose: `onClose() {
@@ -250,7 +250,7 @@ function buildOptionMethod(methodName, model, methodList, scheme) {
 // js整体拼接
 function buildexport(conf, type, data, rules, selectOptions, uploadVar, props, methods, created) {
   const str = `
-  ${type === 'dialog' ? 'import { deepCopy } from "@/utils";' : ''}
+  ${type === 'dialog' ? 'import { copyData } from "@/utils";' : ''}
   ${exportDefault}{
   ${inheritAttrs[type]}
   data () {
