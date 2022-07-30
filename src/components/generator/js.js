@@ -120,10 +120,13 @@ function mixinMethod(type) {
         },`,
         onClose: `onClose() {
         this.$refs['${confGlobal.formRef}'].resetFields()
-      },`,
+        },`,
         close: `close() {
         this.$emit('update:visible', false)
-      },`,
+        },`,
+        handleCanceledit: `handleCanceledit() {
+          this.close()
+        },`,
         handelConfirm: `handelConfirm() {
         this.$refs['${confGlobal.formRef}'].validate(valid => {
           if(!valid) return
