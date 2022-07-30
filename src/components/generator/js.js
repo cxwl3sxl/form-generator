@@ -113,7 +113,11 @@ function mixinMethod(type) {
       },`
       } : null,
       dialog: {
-        onOpen: 'onOpen() {},',
+        onOpen: `onOpen() {
+          if (this.vm) {
+            this.formData = deepCopy(this.vm);
+          }
+        },`,
         onClose: `onClose() {
         this.$refs['${confGlobal.formRef}'].resetFields()
       },`,
@@ -123,6 +127,8 @@ function mixinMethod(type) {
         handelConfirm: `handelConfirm() {
         this.$refs['${confGlobal.formRef}'].validate(valid => {
           if(!valid) return
+          //TODO: 保存逻辑
+          this.$emit("reload");
           this.close()
         })
       },`
@@ -240,7 +246,9 @@ function buildOptionMethod(methodName, model, methodList, scheme) {
 
 // js整体拼接
 function buildexport(conf, type, data, rules, selectOptions, uploadVar, props, methods, created) {
-  const str = `${exportDefault}{
+  const str = `
+  ${type === 'dialog' ? 'import { deepCopy } from "@/utils";' : ''}
+  ${exportDefault}{
   ${inheritAttrs[type]}
   data () {
     return {
@@ -255,6 +263,9 @@ function buildexport(conf, type, data, rules, selectOptions, uploadVar, props, m
       ${props}
     }
   },
+  ${type === 'dialog' ? `props: {
+    vm: { required: true }
+  },` : ''}
   ${(created ? `created () {
     ${created}
   },` : '')}
