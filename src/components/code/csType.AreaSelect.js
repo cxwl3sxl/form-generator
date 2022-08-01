@@ -9,9 +9,10 @@ export class CsTypeAreaSelect {
       tag: 'AreaSelect',
       icon: 'area',
       config: {
-        propName: prop._prop
+        propName: prop._prop,
+        placeholder: '请选择'
       },
-      default: 100000
+      default: null
     }
   }
 }
