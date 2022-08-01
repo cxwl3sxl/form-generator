@@ -114,6 +114,7 @@ function mixinMethod(type) {
       } : null,
       dialog: {
         onOpen: `onOpen() {
+          this.$refs['${confGlobal.formRef}'].resetFields();
           if (this.vm) {
             copyData(this.vm, this.formData);
           }
